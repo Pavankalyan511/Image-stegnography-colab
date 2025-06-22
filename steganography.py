@@ -3,7 +3,6 @@
 from PIL import Image
 import numpy as np
 
-# 🧠 Convert text to binary
 def to_bin(data):
     return ''.join(format(ord(char), '08b') for char in data)
 
