@@ -1,4 +1,3 @@
-# 📦 Install necessary packages (skip if already installed in Colab)
 !pip install pillow
 
 from PIL import Image
@@ -8,7 +7,6 @@ import numpy as np
 def to_bin(data):
     return ''.join(format(ord(char), '08b') for char in data)
 
-# 🧪 Encode message into image
 def encode_image(image_path, secret_message, output_path="encoded_image.png"):
     image = Image.open(image_path)
     binary_msg = to_bin(secret_message) + '1111111111111110'  # EOF marker
@@ -26,7 +24,6 @@ def encode_image(image_path, secret_message, output_path="encoded_image.png"):
     encoded_image.save(output_path)
     print(f"✅ Message encoded into {output_path}")
 
-# 🧪 Decode hidden message from image
 def decode_image(image_path):
     image = Image.open(image_path)
     pixels = np.array(image).flatten()
